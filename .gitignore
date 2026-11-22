@@ -1,0 +1,16 @@
+# Personal Claude Code settings (can contain your computer's paths and permissions)
+.claude/settings.local.json
+CLAUDE.local.md
+
+# Secrets
+.env
+
+# Real applications and contacts: contain names of real people and personal documents
+applications/
+output/contacts-found.md
+
+# System files
+Thumbs.db
+desktop.ini
+.DS_Store
+
