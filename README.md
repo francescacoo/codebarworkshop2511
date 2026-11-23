@@ -80,21 +80,30 @@ agent works.
 
 ### What you need ⚠️
 
+Pick ONE of the two ways to run the agent:
+
+**Option A: opencode (free).** An open-source tool with free models
+included. No account and no credit card needed. Setup guide:
+[`workshop/00-setup.md`](workshop/00-setup.md). This is the way we use in
+the workshop.
+
+**Option B: Claude Code.**
 - **A paid Claude plan** (Pro, Max, Team or Enterprise). Claude Code is
-  **not** included in the free plan, so without a paid plan the agent will
-  not run.
+  **not** included in the free plan.
 - **Claude Code installed** on your computer. Installation guide:
   https://docs.claude.com/en/docs/claude-code/overview
 
-No paid plan? No problem: you can still read the skills and follow the live
-demo at the workshop.
+The agent and its skills are the same text files in both. Only the agent's
+header differs (see "Two tools, one project" below).
 
 ### Steps
 
 1. Download or clone this repository.
 2. Open the folder `iris-job-agent` in your terminal. Always start from
    this main folder, not from a subfolder.
-3. Start Claude Code by typing `claude` and pressing Enter.
+3. Start your tool: type `opencode` (Option A, after
+   allow web search when it asks) or `claude` (Option B),
+   and press Enter.
 4. Write what Iris asks the agent, one request at a time:
 
 | Step | What Iris asks the agent |
@@ -113,8 +122,14 @@ demo at the workshop.
 ```
 iris-job-agent/
 ├── .claude/
-│   ├── agents/           ← the agent
+│   ├── agents/           ← the agent (Claude Code)
 │   └── skills/           ← one folder per skill, each with a SKILL.md
+│                           (read by Claude Code AND opencode)
+├── .opencode/
+│   └── agents/           ← the same agent, for opencode
+├── opencode.json         ← makes Iris's agent the default in opencode
+├── scripts/              ← keeps the two agent files in sync
+├── workshop/             ← workshop setup guide, Track A, Track B, coach guide
 │
 ├── profile/              ← Iris's original documents (German, read only)
 │   ├── lebenslauf/       ← her CV
@@ -151,6 +166,21 @@ margins or spacing. The next documents will use them.
 
 ---
 
+## Two tools, one project 🔧
+
+| Part | Claude Code | opencode |
+|---|---|---|
+| Skills | `.claude/skills/` | the same `.claude/skills/` folder (opencode reads it too) |
+| Agent | `.claude/agents/iris-job-agent.md` | `.opencode/agents/iris-job-agent.md` |
+| Which tools the agent may use | `tools:` in the agent header | `permission:` in the agent header (also blocks writes to `profile/`) |
+| Model | chosen in the header | you choose it with `/models` |
+
+The agent's instructions are identical. If you change them in
+`.claude/agents/iris-job-agent.md`, run `bash scripts/sync-opencode-agent.sh`
+to update the opencode copy.
+
+---
+
 ## Make it your own ✏️
 
 Want an agent for your own job search? The skills are plain text, so you
@@ -177,7 +207,8 @@ data**. Before you do, please know this:
   If you only download this project and never publish it, nobody else can
   see your files.
 - **The AI sees what you give it.** While the agent works, the content of
-  your documents is sent to Claude to be processed. Do not use documents
+  your documents is sent to the AI model to be processed. With the free
+  models in opencode, what you send may be stored by the provider. Do not use documents
   you are not comfortable sharing with an AI service.
 - **Git vs. GitHub:** Git is a program on your computer. GitHub is a website
   where projects are published. The `.gitignore` file keeps your
