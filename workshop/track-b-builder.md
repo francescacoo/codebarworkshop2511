@@ -52,22 +52,25 @@ the file is loaded only when the skill is picked.
 
 ---
 
-## Challenge 1: Change one number (10 min) ⭐ starter
+## Challenge 1: Change what the agent says back (10 min) ⭐ starter
 
-**Goal:** the tracker should set the follow-up date **3 days** after applying,
-not 7.
+**Goal:** when Iris says she applied, the tracker should confirm in
+**one short sentence** and end with **"Good luck, Iris!"**.
 
-**Where:** `.claude/skills/application-tracker/SKILL.md`, search for `7 days`.
+**Where:** `.claude/skills/application-tracker/SKILL.md`, section *When Iris says
+she applied*, step 4: `Confirm to Iris what you saved.`
 
-**Test:** in opencode say `Iris applied today to Sunflower Preschool, Assistant Teacher`
+**Change it to:** `Confirm to Iris in ONE short sentence what you saved. End with "Good luck, Iris!"`
+
+**Test:** restart opencode, then say `Iris applied today to Sunflower Preschool, Assistant Teacher`
 (if the agent asks for the offer, use `workshop/fallback/sample-offer.md`).
-Then check `applications/tracker.md`.
+Read the answer.
 
-**Done when:** the follow-up date is 3 days after today.
+**Done when:** the confirmation is one sentence and ends with "Good luck, Iris!".
 
-**Think about it:** the number appears only once, in the steps. Imagine it
-appeared in three places and you changed only two. What would the agent do?
-That is why a good skill states each fact in exactly one place.
+**Think about it:** you did not touch any code. You changed one sentence of text,
+and the agent behaves differently. Now try a bigger change: make it confirm in
+German. Which part of the skill did you change this time?
 
 ---
 
