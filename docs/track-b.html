@@ -1,10 +1,10 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2b. Track B: Builder · Iris workshop</title><link rel="stylesheet" href="style.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet"></head><body><header><b>codebar Munich</b><a href="index.html">Home</a><a href="setup.html">1. Setup</a><a href="track-a.html">2a. Track A: Explorer</a><a href="track-b.html" class="on">2b. Track B: Builder</a><a href="files.html">Practice files</a></header><main><h1>Track B: Builder (change skills and build new ones)</h1>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2b. Track B: Builder · Iris workshop</title><link rel="stylesheet" href="style.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet"></head><body><header><b>codebar Munich</b><a href="prework.html">Prework</a><a href="index.html">Home</a><a href="track-a.html">2a. Track A: Explorer</a><a href="track-b.html" class="on">2b. Track B: Builder</a><a href="files.html">Practice files</a></header><main><h1>Track B: Builder (change skills and build new ones)</h1>
 <p><strong>For:</strong> people who like to tinker. You do not need to know how to code.
 Skills are plain text. If you can edit a document, you can do this.
 <strong>Time:</strong> about 75 minutes. Do the warm-up and then pick the challenges you like.</p>
 <p><strong>Your goal:</strong> change how the agent behaves <strong>by editing text</strong>, then test
 that the change worked.</p>
-<p>Finished setup? (<a href="setup.html">00-setup.md</a>) Then start here.</p>
+<p>Finished the <a href="prework.html">prework</a>? Then start here.</p>
 <hr />
 <h2>The edit-test loop</h2>
 <p>Every challenge works the same way:</p>
@@ -20,7 +20,7 @@ that the change worked.</p>
 </code></pre>
 <p>(New files you created are not affected. Delete them by hand.)</p>
 <hr />
-<h2>Warm-up: read a skill like a map (10 min)</h2>
+<h2>Warm-up: read a skill like a map</h2>
 <p>Open <code>.claude/skills/application-tracker/SKILL.md</code>. Mark the four parts:</p>
 <table>
 <thead>
@@ -62,19 +62,21 @@ the file is loaded only when the skill is picked.</p>
 2. Which rule in <code>application-tracker</code> stops the agent from guessing that Iris applied?</p>
 </blockquote>
 <hr />
-<h2>Challenge 1: Change one number (10 min) ⭐ starter</h2>
-<p><strong>Goal:</strong> the tracker should set the follow-up date <strong>3 days</strong> after applying,
-not 7.</p>
-<p><strong>Where:</strong> <code>.claude/skills/application-tracker/SKILL.md</code>, search for <code>7 days</code>.</p>
-<p><strong>Test:</strong> in opencode say <code>Iris applied today to Sunflower Preschool, Assistant Teacher</code>
+<h2>Challenge 1: Change what the agent says back - starter</h2>
+<p><strong>Goal:</strong> when Iris says she applied, the tracker should confirm in
+<strong>one short sentence</strong> and end with <strong>"Good luck, Iris!"</strong>.</p>
+<p><strong>Where:</strong> <code>.claude/skills/application-tracker/SKILL.md</code>, section <em>When Iris says she applied</em>,
+step 4: <code>Confirm to Iris what you saved.</code></p>
+<p><strong>Change it to:</strong> <code>Confirm to Iris in ONE short sentence what you saved. End with "Good luck, Iris!"</code></p>
+<p><strong>Test:</strong> restart opencode, then say <code>Iris applied today to Sunflower Preschool, Assistant Teacher</code>
 (if the agent asks for the offer, use <code>workshop/fallback/sample-offer.md</code>).
-Then check <code>applications/tracker.md</code>.</p>
-<p><strong>Done when:</strong> the follow-up date is 3 days after today.</p>
-<p><strong>Think about it:</strong> the number appears only once, in the steps. Imagine it
-appeared in three places and you changed only two. What would the agent do?
-That is why a good skill states each fact in exactly one place.</p>
+Read the answer.</p>
+<p><strong>Done when:</strong> the confirmation is one sentence and ends with "Good luck, Iris!".</p>
+<p><strong>Think about it:</strong> you did not touch any code. You changed one sentence of text,
+and the agent behaves differently. Now try a bigger change: make it confirm in German.
+Which part of the skill did you change this time?</p>
 <hr />
-<h2>Challenge 2: Tighten the rules (15 min) ⭐ starter</h2>
+<h2>Challenge 2: Tighten the rules - starter</h2>
 <p><strong>Goal:</strong> make the cover letter shorter and stricter.</p>
 <p><strong>Where:</strong> <code>.claude/skills/adapt-documents/SKILL.md</code>, sections <em>Cover letter</em> and <em>Rules</em>.</p>
 <p><strong>Make these changes:</strong>
@@ -92,7 +94,7 @@ and none of the banned phrases.</p>
 How would you rewrite that rule so it is harder to forget? (Hint: put the check
 into the <em>Steps</em>: "before saving, count the words".)</p>
 <hr />
-<h2>Challenge 3: Another country (20 min) ⭐⭐</h2>
+<h2>Challenge 3: Another country </h2>
 <p><strong>Goal:</strong> Iris now wants a job in <strong>Munich</strong>. A German application follows
 different rules than a US one.</p>
 <p><strong>Do NOT overwrite <code>adapt-documents</code>.</strong> Make a <strong>copy</strong> as a new skill:</p>
@@ -119,7 +121,7 @@ in the chat) and the documents are in German with the rules you chose.</p>
 <p><strong>Think about it:</strong> the agent picked a skill on its own. What would you change in
 the descriptions if it picked the wrong one?</p>
 <hr />
-<h2>Challenge 4: Build a brand-new skill (30 min) ⭐⭐</h2>
+<h2>Challenge 4: Build a brand-new skill </h2>
 <p><strong>Goal:</strong> add a seventh skill, <strong><code>interview-prep</code></strong>. When Iris is invited to an
 interview, it prepares questions and answer outlines for that exact offer.</p>
 <p><strong>Start from the template:</strong></p>
@@ -142,7 +144,7 @@ skill name:</p>
 <p><strong>Done when:</strong> all three tests pass. <strong>If the skill is not picked,</strong> the
 <code>description:</code> is almost always the problem. Add the words Iris would really say.</p>
 <hr />
-<h2>Challenge 5: Give the agent a colleague (20 min) ⭐⭐⭐</h2>
+<h2>Challenge 5: Give the agent a colleague </h2>
 <p><strong>Goal:</strong> an <strong>agent</strong> is not only a bigger skill. It is a different <em>worker</em>
 with its own role and <strong>its own permissions</strong>. Build a reviewer who can read
 everything and change nothing.</p>
@@ -165,7 +167,7 @@ not change any file.</p>
 - "The steps for tracking an application"
 - "A strict reviewer personality"</p>
 <hr />
-<h2>Challenge 6: Make it your own (free time) ⭐⭐⭐</h2>
+<h2>Challenge 6: Make it your own </h2>
 <p>Follow the "Make it your own" steps in the main <code>README.md</code>, with a <strong>fictional</strong>
 person:</p>
 <ol>
