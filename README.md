@@ -84,8 +84,8 @@ Pick ONE of the two ways to run the agent:
 
 **Option A: opencode (free).** An open-source tool with free models
 included. No account and no credit card needed. Setup guide:
-[`workshop/00-setup.md`](workshop/00-setup.md). This is the way we use in
-the workshop.
+[francescacoo.github.io/codebarworkshopmunich/prework.html](https://francescacoo.github.io/codebarworkshopmunich/prework.html).
+This is the way we use in the workshop.
 
 **Option B: Claude Code.**
 - **A paid Claude plan** (Pro, Max, Team or Enterprise). Claude Code is
@@ -129,7 +129,7 @@ iris-job-agent/
 │   └── agents/           ← the same agent, for opencode
 ├── opencode.json         ← makes Iris's agent the default in opencode
 ├── scripts/              ← keeps the two agent files in sync
-├── workshop/             ← workshop setup guide, Track A, Track B, coach guide
+├── workshop/             ← practice offers and a starter template
 │
 ├── profile/              ← Iris's original documents (German, read only)
 │   ├── lebenslauf/       ← her CV
